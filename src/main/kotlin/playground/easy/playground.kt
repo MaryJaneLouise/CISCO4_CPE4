@@ -5,15 +5,19 @@ import java.util.Scanner
 //Hardcoded numbers and variables
 //1) Hello, world!
 fun helloWorld() {
+    println("\nPrinting of Hello, World! (Hard-coded)")
     println("Hello, World!")
+    println("\n")
 }
 
 //2) Variables and Data Types
 fun variableTypes() {
+    println("\nPrinting of passing of variables (Hard-coded)")
     val message = "Hello"
     var count = 10
         count = 20// Mutable variable can be reassigned
     println("$message, World! The count is $count.")
+    println("\n")
 }
 
 //3) Functions
@@ -23,7 +27,9 @@ fun functionGreetUser(name: String) : String {
 
 fun functionMain() {
     val message = functionGreetUser("jerjerking")
+    println("\nPrinting of a function (Hard-coded)")
     println(message)
+    println("\n")
 }
 
 //4) Conditional Statements
@@ -37,12 +43,15 @@ fun maxNumbers(i: Int, j: Int) : Int {
 
 fun mainMaxNumbers() {
     val selectedNumbers = maxNumbers(1, 2)
+    println("\nPrinting of minimum and maximum numbers (Hard-coded)")
     println("The maximum value is $selectedNumbers.")
+    println("\n")
 }
 
 //5) Loops
 fun loopingNumbers() {
     val numbers = listOf(1, 2, 3, 4, 5)
+    println("\nPrinting of two types of loop (Hard-coded)")
     println("Printing numbers using for loop")
     for (number in numbers) {
         println(number)
@@ -51,6 +60,7 @@ fun loopingNumbers() {
     numbers.forEach {number ->
         println(number)
     }
+    println("\n")
 }
 
 //User-input
@@ -60,6 +70,7 @@ fun functionGreetings(name: String): String {
 }
 
 fun functionGreetUserInput() {
+    println("\nPrinting of function (User-input)")
     val scanner = Scanner(System.`in`)
 
     print("Enter your name: ")
@@ -67,6 +78,7 @@ fun functionGreetUserInput() {
 
     val message = functionGreetings(userName)
     println(message)
+    println("\n")
 }
 
 //2) Conditionals
@@ -80,6 +92,7 @@ fun maxNumbersUserInput(i: Int, j: Int): Int {
 
 fun mainMaxNumbersUserInput() {
     val scanner = Scanner(System.`in`)
+    println("\nPrinting of maximum and minimum numbers (User-input)")
 
     print("Enter the first number: ")
     val number1 = scanner.nextInt()
@@ -89,11 +102,13 @@ fun mainMaxNumbersUserInput() {
 
     val selectedNumbers = maxNumbersUserInput(number1, number2)
     println("The maximum value between $number1 and $number2 is $selectedNumbers.")
+    println("\n")
 }
 
 //3) Loops
 fun loopingNumbersUserInput() {
     val scanner = Scanner(System.`in`)
+    println("\nPrinting of two types of loop (User-input)")
 
     // Input the list of numbers
     val numbers = mutableListOf<Int>()
@@ -116,6 +131,7 @@ fun loopingNumbersUserInput() {
     numbers.forEach { number ->
         println(number)
     }
+    println("\n")
 }
 
 fun main() {
@@ -123,6 +139,7 @@ fun main() {
     val scanner = Scanner(System.`in`) // Create the scanner here
 
     while (!shouldExit) {
+        println("Playground (easy)")
         println("Choose an option:")
         println("1) Hello, world!")
         println("2) Variables and Data Types")
@@ -150,5 +167,5 @@ fun main() {
             else -> println("Invalid choice. Please select a valid option.\n")
         }
     }
-    scanner.close() // Close the scanner only once, after the loop
+    scanner.close()
 }
