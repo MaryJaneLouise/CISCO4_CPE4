@@ -1,8 +1,8 @@
-package playground
+package playground.easy
 
 import java.util.Scanner
 
-//Harccoded numbers and variables
+//Hardcoded numbers and variables
 //1) Hello, world!
 fun helloWorld() {
     println("Hello, World!")
@@ -67,7 +67,6 @@ fun functionGreetUserInput() {
 
     val message = functionGreetings(userName)
     println(message)
-    scanner.close()
 }
 
 //2) Conditionals
@@ -90,7 +89,6 @@ fun mainMaxNumbersUserInput() {
 
     val selectedNumbers = maxNumbersUserInput(number1, number2)
     println("The maximum value between $number1 and $number2 is $selectedNumbers.")
-    scanner.close()
 }
 
 //3) Loops
@@ -118,33 +116,39 @@ fun loopingNumbersUserInput() {
     numbers.forEach { number ->
         println(number)
     }
-    scanner.close()
 }
 
 fun main() {
-    //Harccoded numbers and variables
-    //1) Hello, world!
-    //helloWorld()
+    var shouldExit = false
+    val scanner = Scanner(System.`in`) // Create the scanner here
 
-    //2) Variables and Data Types
-    //variableTypes()
+    while (!shouldExit) {
+        println("Choose an option:")
+        println("1) Hello, world!")
+        println("2) Variables and Data Types")
+        println("3) Functions")
+        println("4) Conditionals")
+        println("5) Loops")
+        println("6) User-input Functions")
+        println("7) User-input Conditionals")
+        println("8) User-input Loops")
+        println("9) Exit")
+        print("Answer: ")
 
-    //3) Functions
-    //functionMain()
+        val choice = readLine()?.toIntOrNull() ?: 0
 
-    //4) Conditionals
-    //mainMaxNumbers()
-
-    //5) Loops
-    //loopingNumbers()
-
-    //User-input
-    //1) Functions
-    //functionGreetUserInput()
-
-    //2) Conditionals
-    //mainMaxNumbersUserInput()
-
-    //3) Loops
-    //loopingNumbersUserInput()
+        when (choice) {
+            1 -> helloWorld()
+            2 -> variableTypes()
+            3 -> functionMain()
+            4 -> mainMaxNumbers()
+            5 -> loopingNumbers()
+            6 -> functionGreetUserInput()
+            7 -> mainMaxNumbersUserInput()
+            8 -> loopingNumbersUserInput()
+            9 -> shouldExit = true
+            else -> println("Invalid choice. Please select a valid option.\n")
+        }
+    }
+    scanner.close() // Close the scanner only once, after the loop
 }
