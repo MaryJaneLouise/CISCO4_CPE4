@@ -10,22 +10,23 @@ fun formatName(name: String): String {
 }
 
 fun main() {
-    println("Name Formatter")
+    println("Name Formatter (Firstname Lastname -> Lastname, Firstname)")
     val scanner = Scanner(System.`in`)
 
     var continueGenerating = true
 
     while (continueGenerating) {
         print("Enter the number of names to format: ")
-        val count = scanner.nextInt()
+        val count = readLine().toString().toInt()
         scanner.nextLine()  // Consume the newline character
 
         val names = mutableListOf<String>()
         for (i in 1..count) {
             print("Enter name $i: ")
-            val fullName = scanner.nextLine()
+            val fullName = readLine().toString()
             names.add(formatName(fullName))
         }
+
 
         println("Formatted names:")
         for (formattedName in names) {
@@ -36,7 +37,5 @@ fun main() {
         val generateAgain = scanner.nextLine().toLowerCase()
         continueGenerating = generateAgain == "yes"
     }
-
-    println("Thank you for using the Name Formatter.")
     scanner.close()
 }
