@@ -4,11 +4,9 @@ import java.util.*
 
 //Even or Odd
 fun evenOrOdd(){
-    val scanner = Scanner(System.`in`)
-
     println("\nEven or Odd")
     print("Enter the number: ")
-    val number = scanner.nextInt()
+    val number = readln().toInt()
 
     var result = number % 2
     if (result == 0) {
@@ -18,42 +16,43 @@ fun evenOrOdd(){
     }
 }
 
+//Factorials
 fun factorialNumber() {
-    val scanner = Scanner(System.`in`)
     var factorial = 1
 
     println("\nFactorial of a number")
     print("Enter a number: ")
-    val number = scanner.nextInt()
+    val number = readln().toInt()
 
     for (i in 1..number) {
-        factorial = factorial * i
+        factorial *= i
     }
 
     println("The factorial of $number is $factorial.")
 }
 
+//Greatest Common Divisor
 fun greatestCommonDivisor() {
-    val scanner = Scanner(System.`in`)
-
     println("\nGCD")
     print("Enter the first number: ")
-    val numberOne = scanner.nextInt()
+    val numberOne = readln().toInt()
 
     print("Enter the second number: ")
-    val numberTwo = scanner.nextInt()
+    val numberTwo = readln().toInt()
 
     var result = 1
 
     var i = 1
     while (i <= numberOne && i <= numberTwo) {
-        if (numberOne % i == 0 && numberTwo % i == 0)
+        if (numberOne % i == 0 && numberTwo % i == 0) {
             result = i
+        }
         i++
     }
     println("The GCD of $numberOne and $numberTwo is $result.")
 }
 
+//Vowel or Consonant | Easy version
 fun vowelOrConsonant() {
     println("\nVowel or Consonant")
 
@@ -61,20 +60,22 @@ fun vowelOrConsonant() {
     val character = readln()
 
     if (character.lowercase() == "a" ||
-        character.toLowerCase() == "e" ||
-        character.toLowerCase() == "i" ||
-        character.toLowerCase() == "o" ||
-        character.toLowerCase() == "u") {
+        character.lowercase() == "e" ||
+        character.lowercase() == "i" ||
+        character.lowercase() == "o" ||
+        character.lowercase() == "u") {
         println("The $character is a vowel.")
     } else {
         println("The $character is a consonant.")
     }
 }
 
+//Vowel or Consonant | Shite version
 fun isVowel(letter: Char) : Boolean {
     val vowels = "AEIOUaeiou"
     return letter in vowels
 }
+
 fun vowelOrConsonant2() {
     println("\nVowel Checker")
 
@@ -94,13 +95,13 @@ fun vowelOrConsonant2() {
     }
 }
 
+//Pascal Triangle
 fun pascalTriangle() {
-    val scanner = Scanner(System.`in`)
     var coefficient = 1
 
     println("\nPascal Triangle")
     print("Enter the number of rows for this triangle: ")
-    val rowNumber = scanner.nextInt()
+    val rowNumber = readln().toInt()
 
     for (i in 0..rowNumber - 1) {
         for (j in 0..i) {
@@ -117,7 +118,6 @@ fun pascalTriangle() {
 
 fun main() {
     var shouldExit = false
-    val scanner = Scanner(System.`in`) // Create the scanner here
 
     while (!shouldExit) {
         println("\nCISCO4_SWM1")
@@ -131,18 +131,21 @@ fun main() {
         println("7) Exit")
         print("Answer: ")
 
-        val choice = readLine()?.toIntOrNull() ?: 0
+        val choice = readln().toIntOrNull()
 
-        when (choice) {
-            1 -> evenOrOdd()
-            2 -> factorialNumber()
-            3 -> greatestCommonDivisor()
-            4 -> vowelOrConsonant()
-            5 -> vowelOrConsonant2()
-            6 -> pascalTriangle()
-            7 -> shouldExit = true
-            else -> println("Invalid choice. Please select a valid option.\n")
+        if (choice != null) {
+            when (choice) {
+                1 -> evenOrOdd()
+                2 -> factorialNumber()
+                3 -> greatestCommonDivisor()
+                4 -> vowelOrConsonant()
+                5 -> vowelOrConsonant2()
+                6 -> pascalTriangle()
+                7 -> shouldExit = true
+                else -> println("Invalid choice. Please select a valid option.\n")
+            }
+        } else {
+            println("Invalid input. Please enter a valid option.\n")
         }
     }
-    scanner.close()
 }

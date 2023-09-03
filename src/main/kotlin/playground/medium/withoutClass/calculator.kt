@@ -26,16 +26,15 @@ fun division(numberOne : Float, numberTwo : Float) : String {
     }
 }
 fun main() {
-    val scanner = Scanner(System.`in`)
     var continueCalculator = true
 
     while (continueCalculator) {
         println("Mini Calculator")
         print("Enter first number: ")
-        val firstNumber = scanner.nextFloat()
+        val firstNumber = readln().toFloat()
 
         print("Enter second number: ")
-        val secondNumber = scanner.nextFloat()
+        val secondNumber = readln().toFloat()
 
         println("Select an operation:")
         println("1. Addition")
@@ -45,7 +44,7 @@ fun main() {
         println("5. Exit")
         print("Answer: ")
 
-        val choice = scanner.nextInt()
+        val choice = readln().toInt()
 
         when (choice) {
             1 -> println("Result: ${addition(firstNumber, secondNumber)}\n")
@@ -56,5 +55,4 @@ fun main() {
             else -> println("Invalid choice. Please select a valid option.")
         }
     }
-    scanner.close()
 }

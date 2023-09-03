@@ -71,10 +71,9 @@ fun functionGreetings(name: String): String {
 
 fun functionGreetUserInput() {
     println("\nPrinting of function (User-input)")
-    val scanner = Scanner(System.`in`)
 
     print("Enter your name: ")
-    val userName = scanner.nextLine()
+    val userName = readln()
 
     val message = functionGreetings(userName)
     println(message)
@@ -91,14 +90,13 @@ fun maxNumbersUserInput(i: Int, j: Int): Int {
 }
 
 fun mainMaxNumbersUserInput() {
-    val scanner = Scanner(System.`in`)
     println("\nPrinting of maximum and minimum numbers (User-input)")
 
     print("Enter the first number: ")
-    val number1 = scanner.nextInt()
+    val number1 = readln().toInt()
 
     print("Enter the second number: ")
-    val number2 = scanner.nextInt()
+    val number2 = readln().toInt()
 
     val selectedNumbers = maxNumbersUserInput(number1, number2)
     println("The maximum value between $number1 and $number2 is $selectedNumbers.")
@@ -107,16 +105,19 @@ fun mainMaxNumbersUserInput() {
 
 //3) Loops
 fun loopingNumbersUserInput() {
-    val scanner = Scanner(System.`in`)
     println("\nPrinting of two types of loop (User-input)")
+    var i = 1
 
     // Input the list of numbers
     val numbers = mutableListOf<Int>()
     print("Enter the number of elements: ")
-    val count = scanner.nextInt()
+    val count = readln().toInt()
+
     println("Enter $count numbers:")
     repeat(count) {
-        val number = scanner.nextInt()
+
+        print("Number ${i++}: ")
+        val number = readln().toInt()
         numbers.add(number)
     }
 
@@ -136,7 +137,6 @@ fun loopingNumbersUserInput() {
 
 fun main() {
     var shouldExit = false
-    val scanner = Scanner(System.`in`) // Create the scanner here
 
     while (!shouldExit) {
         println("Playground (easy)")
@@ -167,5 +167,4 @@ fun main() {
             else -> println("Invalid choice. Please select a valid option.\n")
         }
     }
-    scanner.close()
 }

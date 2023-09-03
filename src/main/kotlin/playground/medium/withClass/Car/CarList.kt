@@ -10,7 +10,7 @@ fun main() {
     for (i in 1..carCount) {
         val car = Car()
 
-        println("Details for car no. $i")
+        println("Details for car $i")
         print("Enter car brand: ")
         car.brand = readln()
 
