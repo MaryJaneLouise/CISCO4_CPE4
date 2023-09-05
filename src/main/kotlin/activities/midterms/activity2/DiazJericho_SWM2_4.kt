@@ -18,18 +18,11 @@ open class Character(val name : String, var healthBar : Int, val damageDealth : 
             println("$name has $healthBar health remaining!")
         }
     }
-
-    open fun healBody() {
-        val healingAmount = Random.nextInt(10, 25)
-        healthBar += healingAmount
-        println("$name heals for $healingAmount health.")
-        println("$name now has $healthBar health.")
-    }
 }
 
 class Player(name: String, healthBar: Int, damage: Int) : Character(name, healthBar, damage) {
     fun heal() {
-        val healingAmount = Random.nextInt(10, 21)
+        val healingAmount = Random.nextInt(10, 50)
         healthBar += healingAmount
         println("$name heals for $healingAmount health.")
         println("$name now has $healthBar health.")
@@ -38,13 +31,12 @@ class Player(name: String, healthBar: Int, damage: Int) : Character(name, health
 
 class Enemy(name: String, health: Int, damage: Int) : Character(name, health, damage) {
     fun heal() {
-        val healingAmount = Random.nextInt(10, 21)
+        val healingAmount = Random.nextInt(10, 50)
         healthBar += healingAmount
         println("$name heals for $healingAmount health.")
         println("$name now has $healthBar health.")
     }
 }
-
 
 class Game(private val player: Player, private val enemy: Enemy) {
     fun play() {
